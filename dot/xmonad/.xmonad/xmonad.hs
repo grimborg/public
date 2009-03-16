@@ -1,6 +1,13 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses, TypeSynonymInstances, FlexibleContexts, NoMonomorphismRestriction #-}
 -- Workspaces:
+-- 1: code
+-- 2: editor
 -- 3: web (Firefox)
+-- 4: gimp (Gimp)
+-- 5: term
+-- 6: files
+-- 7: music (Spotify)
+-- 8: fullscreen
 -- 9: im  (pidgin, skype)
 --
 -- Uses Xmobar with config ~/.xmobarrc
@@ -40,6 +47,7 @@
  
 import XMonad
 import XMonad.Util.EZConfig
+import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run(spawnPipe)
 import System.IO
@@ -67,7 +75,7 @@ import qualified Data.Map as M
 -- defaults on which we build
 -- use e.g. defaultConfig or gnomeConfig
 myBaseConfig = gnomeConfig
- 
+
 -- display
 -- replace the bright red border with a more stylish colour
 myBorderWidth = 2
@@ -152,6 +160,7 @@ myKeys conf = M.fromList $
     , ((myModMask              , xK_w     ), sendMessage (IncMasterN 1))
     , ((myModMask              , xK_v     ), sendMessage (IncMasterN (-1)))
     , ((myModMask              , xK_q     ), broadcastMessage ReleaseResources >> restart "xmonad" True)
+    , ((myModMask              , xK_a     ), focusUrgent)
     , ((myModMask .|. shiftMask, xK_q     ), spawn "gnome-session-save --kill")
     , ((altMask .|. controlMask, xK_Left  ), prevWS)
     , ((altMask .|. controlMask, xK_Right ), nextWS)
@@ -182,14 +191,23 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((altMask, button5), (const $ windows S.swapDown))
     ]
  
+--myPP statusPipe = xmobarPP {
+--    ppOutput  = hPutStrLn statusPipe,
+--    ppTitle   = xmobarColor "green"  "" . shorten 60,
+--    ppUrgent  = xmobarColor "red" "" . wrap "!" "!"
+--}
+
+
+
 -- put it all together
 main = do
     xmproc <- spawnPipe "xmobar ~/.xmobarrc"
-    xmonad $ myBaseConfig
+    xmonad $ withUrgencyHook NoUrgencyHook myBaseConfig
         { modMask = myModMask
         , logHook = dynamicLogWithPP $ xmobarPP
             { ppOutput = hPutStrLn xmproc
             , ppTitle = xmobarColor "green" "" . shorten 50
+            , ppUrgent  = xmobarColor "red" "" . wrap "!" "!"
             }
         , workspaces = myWorkspaces
         , layoutHook = myLayoutHook
