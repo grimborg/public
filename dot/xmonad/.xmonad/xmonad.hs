@@ -43,6 +43,7 @@ import XMonad.Util.EZConfig
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.Run(spawnPipe)
 import System.IO
+import XMonad.Layout.IM
 import qualified XMonad.StackSet as S
 import XMonad.Actions.CycleWS
 import XMonad.Config.Gnome
@@ -74,7 +75,7 @@ myNormalBorderColor = "#202030"
 myFocusedBorderColor = "#A0A0D0"
  
 -- workspaces
-myWorkspaces = ["code", "editor", "web"] ++ (terms 2) ++ ["files", "music", "fullscreen", "im"]
+myWorkspaces = ["code", "editor", "web", "gimp", "term", "files", "music", "fullscreen", "im"]
     where terms = map (("term" ++) . show) . (flip take) [1..]
 isFullscreen = (== "fullscreen")
  
@@ -94,10 +95,15 @@ imLayout = avoidStruts $ reflectHoriz $ withIMs ratio rosters chatLayout where
     pidginRoster    = And (ClassName "Pidgin") (Role "buddy_list")
     skypeRoster     = (ClassName "Skype") `And` (Not (Title "Options")) `And` (Not (Role "Chats")) `And` (Not (Role "CallWindowForm"))
  
-myLayoutHook = smartBorders $ fullscreen $ im $ normal where
+gimpLayout = withIM (0.11) (Role "gimp-toolbox") $
+             reflectHoriz $
+             withIM (0.15) (Role "gimp-dock") Full
+
+myLayoutHook = smartBorders $ fullscreen $ im $ gimp $ normal where
     normal     = tallLayout ||| wideLayout ||| singleLayout
     fullscreen = onWorkspace "fullscreen" fullscreenLayout
     im         = onWorkspace "im" imLayout
+    gimp       = onWorkspace "gimp" gimpLayout
  
 -- special treatment for specific windows:
 -- put the Pidgin and Skype windows in the im workspace
@@ -107,15 +113,22 @@ myManageHook = composeAll
     , resource  =? "Do" --> doIgnore
     ] <+> imManageHooks <+> manageHook myBaseConfig
 
-imManageHooks = composeAll [isIM --> moveToIM, isWeb --> moveToWeb, isMusic --> moveToMusic] where
+imManageHooks = composeAll [
+        isIM    --> moveToIM,
+        isWeb   --> moveToWeb,
+        isMusic --> moveToMusic,
+        isGimp  --> moveToGimp
+    ] where
     isIM        = foldr1 (<||>) [isPidgin, isSkype]
     isPidgin    = className =? "Pidgin"
     isSkype     = className =? "Skype"
     moveToIM    = doF $ S.shift "im"
     isWeb       = className =? "Firefox"
     moveToWeb   = doF $ S.shift "web"
-    isMusic     = className =? "Spotify"
+    isMusic     = className =? "spotify"
     moveToMusic = doF $ S.shift "music"
+    isGimp      = className =? "Gimp-2.6"
+    moveToGimp  = doF $ S.shift "gimp"
  
 -- Mod4 is the Super / Windows key
 myModMask = mod4Mask
