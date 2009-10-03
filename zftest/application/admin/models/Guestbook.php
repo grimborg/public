@@ -98,7 +98,7 @@ class Admin_Model_Guestbook
     public function getMapper()
     {
         if (null === $this->_mapper) {
-            $this->setMapper(new Default_Model_GuestbookMapper());
+            $this->setMapper(new Admin_Model_GuestbookMapper());
         }
         return $this->_mapper;
     }

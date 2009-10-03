@@ -20,12 +20,12 @@ class Admin_Model_GuestbookMapper
     public function getDbTable()
     {
         if (null === $this->_dbTable) {
-            $this->setDbTable('Default_Model_DbTable_Guestbook');
+            $this->setDbTable('Admin_Model_DbTable_Guestbook');
         }
         return $this->_dbTable;
     }
 
-    public function save(Default_Model_Guestbook $guestbook)
+    public function save(Admin_Model_Guestbook $guestbook)
     {
         $data = array(
             'email'   => $guestbook->getEmail(),
@@ -41,7 +41,7 @@ class Admin_Model_GuestbookMapper
         }
     }
 
-    public function find($id, Default_Model_Guestbook $guestbook)
+    public function find($id, Admin_Model_Guestbook $guestbook)
     {
         $result = $this->getDbTable()->find($id);
         if (0 == count($result)) {
@@ -59,7 +59,7 @@ class Admin_Model_GuestbookMapper
         $resultSet = $this->getDbTable()->fetchAll();
         $entries   = array();
         foreach ($resultSet as $row) {
-            $entry = new Default_Model_Guestbook();
+            $entry = new Admin_Model_Guestbook();
             $entry->setId($row->id)
                   ->setEmail($row->email)
                   ->setComment($row->comment)
