@@ -1,0 +1,42 @@
+<?= $this->doctype(); ?>
+<html>
+	<head>
+    	<?= $this->headTitle(); ?>
+    	<?= $this->headMeta(); ?>
+    	<?= $this->headLink(); ?>
+    	<?= $this->headStyle(); ?>
+    	<?= $this->headScript(); ?>
+	</head>
+<body>
+<br />
+<div id="header">
+	<div id="logo">
+		<h1>
+			<span>
+				Sistema de Gestión de Experiencias
+				<!-- 
+				<img src="/admin/images/logo.gif" alt="" width="80"/>
+				 -->
+			</span>
+		</h1>
+	</div>
+    <div id="menu">
+        
+	</div>
+</div>
+<div id="splash"><img width="930" alt="" src="/admin/images/img4.jpg"/></div>
+<div id="content">
+	<div id="colOne">
+		<?php echo $this->partial('menu.phtml'); ?>
+	</div>
+	<div id="colTwo">
+		<h1><?= $this->title; ?> :: <?= $this->subtitle; ?></h1>
+		<?php echo $this->layout()->content; ?>
+	</div>
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<div id="footer">
+	<?php echo $this->partial('footer.phtml'); ?>
+</div>
+</body>
+</html>
