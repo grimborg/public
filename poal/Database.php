@@ -57,7 +57,7 @@ class Database {
 	}
 
 	function ComptarAcudits($categories,$cerca) {
-		$sql = "select count(*) from acudits a, acudit_categoria ac where a.id=ac.id_acudit".
+		$sql = "select count(*) from acudits a, acudit_categoria ac where a.id=ac.id_acudit ".
 			$this->SqlGetAcudits($categories,$cerca);
 		$count =  mysql_result(mysql_query($sql),0);
 		return $count;
@@ -90,14 +90,14 @@ class Database {
 
 	function ValidarUsuari($usuari,$clau) {
 		$this->Connectar();
-		$query = mysql_query("select clau from usuaris where usuari='".mysql_escape_string($usuari)."'");
+		$query = mysql_query("select clau from usuaris where usuari='$usuari'");
 		if(!$query) return false;
 		$clau_usuari = mysql_result($query,0);
 		return (!strcmp($clau,$clau_usuari));
 	}
 
 	function GetUsuari($usuari) {
-		$query = mysql_query("select es_admin,alias,email,acudits_per_pagina,pot_afegir from usuaris where usuari='$usuari'");
+		$query = mysql_query("select es_admin,alias,email,acudits_per_pagina,pot_afegir from usuaris where usuari='".mysql_escape_string($usuari)."'");
 		$u = new Usuari();
 		$r = mysql_fetch_array($query);
 		if(!$r) return $u;
@@ -107,7 +107,7 @@ class Database {
 		$u->m_email = $r["email"];
 		$u->m_acudits_per_pagina = $r["acudits_per_pagina"];
 		$u->m_pot_afegir = $r["pot_afegir"];
-		$query = mysql_query("select count(*) from acudits where autor='$u->m_usuari'");
+		$query = mysql_query("select count(*) from acudits where autor='".mysql_escape_string($u->m_usuari)."'");
 		$u->m_nacudits = mysql_result($query,0);
 		return $u;
 	}
@@ -116,29 +116,30 @@ class Database {
 		$u = $_SESSION["usuari"];
 		$data = time();
 		$text = $this->chr2html($text);
-		$query = mysql_query("insert into acudits set usuari='$u->m_usuari',autor='$u->m_usuari',text='$text',data='$data'");
+		$query = mysql_query("insert into acudits set usuari='".mysql_escape_string($u->m_usuari)."',autor='".mysql_escape_string($u->m_usuari)."',text='".mysql_escape_string($text)."',data='$data'");
 		$lastid=mysql_insert_id();
 		if(!$categories) array_push($categories,"(Inclassificables)");
 		foreach($categories as $c) {
-			mysql_query("insert into acudit_categoria set id_acudit='$lastid',categoria='$c'");	
+			mysql_query("insert into acudit_categoria set id_acudit='$lastid',categoria='".mysql_escape_string($c)."'");	
 		}
 	}
 
 	function EsborrarAcudit($id){
+		$id=int($id);
 		$query=mysql_query("delete from acudits where id='$id'");
 		mysql_query($query);
 	}
 	
 	function chr2html($text)
 	{       
-	        $text=str_replace("&","&amp;",$text);
-		        $text=str_replace('"',"&quot;",$text);
-			        $text=str_replace("'","&#039;",$text);
-				        $text=str_replace("<","&lt;",$text);
-					        $text=str_replace(">","&gt;",$text);
-						        $text=str_replace(chr(13),"<br>",$text);
-							        return $text;
-								}
+		$text=str_replace("&","&amp;",$text);
+		$text=str_replace('"',"&quot;",$text);
+		$text=str_replace("'","&#039;",$text);
+		$text=str_replace("<","&lt;",$text);
+		$text=str_replace(">","&gt;",$text);
+		$text=str_replace(chr(13),"<br>",$text);
+		return $text;
+	}
 								
 }
 

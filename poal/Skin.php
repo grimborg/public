@@ -37,8 +37,8 @@ function escriure_pagina_acudits($uri,$text,$acudits,$categories,$nacudits,$usua
 		<style type="text/css" media="screen">
 			@import url( /style.css );
 		</style>
-                <link rel="icon" type="image/png" href="/favicon.ico" />
-		<link rel="SHORTCUT ICON" href="/favicon.ico"/>
+                <link rel="icon" type="image/png" href="http://poal.org/favicon.ico" />
+		<link rel="SHORTCUT ICON" href="http://poal.org/favicon.ico"/>
 	</head>
 	<body>
 		<div id="page">
@@ -52,6 +52,10 @@ function escriure_pagina_acudits($uri,$text,$acudits,$categories,$nacudits,$usua
 						else $nom = $i;
 						if($i == $uri->m_pagina) {?>
 							<li class="num_pagina"><?=$nom?></li>
+						<?} elseif ($i == $uri->m_pagina - 1) {?>
+							<li class="num_pagina"><a rel="previous" href="<?=$uri->GetPagina($i)?>"><?=$nom?></a></li>
+						<?} elseif ($i == $uri->m_pagina + 1) {?>
+							<li class="num_pagina"><a rel="next" href="<?=$uri->GetPagina($i)?>"><?=$nom?></a></li>
 						<?} else {?>
 							<li class="num_pagina"><a href="<?=$uri->GetPagina($i)?>"><?=$nom?></a></li>
 						<?}?>
@@ -84,6 +88,7 @@ function escriure_pagina_acudits($uri,$text,$acudits,$categories,$nacudits,$usua
 				<input type="submit" value="Esborrar"/>
 				<?}?>
 				</form>
+
 				<div class="pagines">
 					<ul>
 					<?for($i=$pag_inicial;$i<=$pag_final;$i++) {
