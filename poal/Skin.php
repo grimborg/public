@@ -163,7 +163,7 @@ function escriure_pagina_acudits($uri,$text,$acudits,$categories,$nacudits,$usua
 						<h2>Comentaris</h2>
 						<ul>
 							<li><a href="http://elpernil.info/wiki/Poal">Quant a el Poal</a></li>
-							<li><a href="http://elpernil.info/wiki/Poal:Programari">El programari del Poal</a></li>
+							<li><a href="http://github.com/grimborg/public/tree/master/poal/">El programari del Poal</a></li>
 							<li><a href="http://elpernil.info/wiki/Poal:Comentaris">Deixa'ns el teu comentari!</a></li>
 						</ul>
 					</li>
