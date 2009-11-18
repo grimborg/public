@@ -1,0 +1,722 @@
+/* Begin Typography & Colors */
+
+/* Aquest arxiu és part del Poal.
+   Autor: Òscar Álvarez Vilaplana (oscar@poal.org)
+   Llicència: GPL versió 2
+
+   El codi del Poal (incloent-hi aquest arxiu) és programari lliure. Pots copiar-lo, modificar-lo, distribuir-lo i vendre'l d'acord amb els termes de la llicència GPL versió 2.
+
+   La llicència és a http://www.gnu.org/licenses/gpl.txt
+*/
+
+body {
+	font-size: 62.5%; /* Resets 1em to 10px */
+	font-family: Arial, 'Bitstream Vera Sans', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	background-color: #d5d6d7;
+	color: #333;
+	}
+
+#page {
+	background-color: #fff;
+	border: 1px solid #959596;
+	}
+
+#header {
+	background-color: #000;
+	}
+
+#content {
+	font-size: 1.2em
+}
+#content h1 {
+	font-size: 1.2em;
+	font-weight: normal;
+	color: #555;
+	font-family: serif;
+}
+#content ul {
+	padding-left: 0px;
+}
+li.acudit {
+	list-style-type: none;
+	list-style-image: none;
+}
+div.acudit {
+	margin-bottom: 20px;
+}
+
+div.acudit p.acudit_text {
+	border-top: 2px solid #fea09b;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+div.acudit p.acudit_gracia {
+	color: #fea09b;
+	padding-top: 0px;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+div.acudit_autor {
+	display: inline;
+	padding: 0px;
+	margin: 0px;
+	margin: 0px;
+	color: gray;
+	font-weight: bold;
+	font-size: 1.5em;
+	float:left;
+	height: 100%;
+	vertical-align: middle;
+}
+div.afegir_acudits {
+	font-family: 'Lucida Grande', Verdana, Sans-Serif;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	margin-left: 0px;
+	background: #f9f9f9;
+	border: #eee;
+	color: #888;
+	border-width: 1px;
+	border-style: solid;
+	-moz-border-radius: 8px 8px 8px 8px;
+}
+div.afegir_acudits h2 {
+	font-size: 1.2em;
+}
+div.acudit_data {
+	float: right;
+	height: 100%;
+	font-size: 1em;
+	vertical-align: bottom;
+}
+div.acudit_categoria{
+	float: right;
+	height: 100%;
+	font-size: 1em;
+	vertical-align: bottom;
+}
+div.acudit_categoria li {
+	display:inline;
+	padding-right: 10px;
+}
+div.acudit_titol {
+	font-family: "Trebuchet MS", "Bitstream Vera Sans", verdana, "Lucida Grande", arial, helvetica, sans-serif, sans;
+	height: 1.5em;
+	padding: 4px 10px 4px 10px;
+}
+.widecolumn .entry p {
+	font-size: 1.05em;
+	}
+
+.narrowcolumn .entry, .widecolumn .entry {
+	line-height: 1.4em;
+	}
+
+.widecolumn {
+	line-height: 1.6em;
+	}
+div.pagines {
+	text-align: center;
+}
+li.num_pagina {
+	font-size: 1em;
+	display: inline;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	margin-left: 0px;
+	margin-right: 10px;
+	background: #f9f9f9;
+	border: #eee;
+	color: #888;
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	-moz-border-radius: 8px 8px 8px 8px;
+}
+div.acudit {
+	background: #f9f9f9;
+	margin-top: 4px;
+	margin-bottom: 20px;
+	padding: 0px 0px 0px 0px;
+	border: #eee;
+	color: #888;
+	border-width: 1px;
+	border-style: solid;
+	display: block;
+	-moz-border-radius: 8px 8px 8px 8px;
+	}
+
+.graybox {
+	background-color: #f8f8f8;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	}
+
+#footer {
+	background-color: #eee;
+	text-align: center;
+	}
+
+small {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 0.9em;
+	}
+
+.description {
+	font-size: 1.2em;
+	}
+
+h2 {
+	font-size: 1.6em;
+	}
+
+h2.pagetitle {
+	font-size: 1.6em;
+	}
+
+#sidebar h2 {
+	font-family: 'Lucida Grande', Verdana, Sans-Serif;
+	font-size: 1.2em;
+	color: #555;
+	}
+
+h3 {
+	font-size: 1.3em;
+	}
+
+
+
+h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar h2, #wp-calendar caption, cite {
+	text-decoration: none;
+	}
+
+.entry p a:visited {
+	color: #b85b5a;
+	}
+
+.commentlist li, #commentform input, #commentform textarea {
+	font: 1.1em Arial, 'Lucida Grande', Verdana, Sans-Serif;
+	text-align: left;
+
+	}
+	
+#sidebar {
+	font: 1.2em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	}
+#sidebar td {
+	font: 0.8em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+small, #sidebar ul ul li, #sidebar ul ol li, #sidebar td, .nocomments, .postmetadata, blockquote, strike {
+	color: #777;
+
+	}
+	
+code {
+	font: 1.1em 'Courier New', Courier, Fixed;
+	}
+
+acronym, abbr, span.caps
+{
+	font-size: 0.9em;
+	letter-spacing: .07em;
+	}
+
+a, h2 a:hover, h3 a:hover {
+	color: #06c;
+	text-decoration: none;
+	}
+
+a:hover {
+	color: #147;
+	text-decoration: underline;
+	}
+
+/* End Typography & Colors */
+
+
+
+/* Begin Structure */
+body {
+	margin: 0;
+	padding: 0; 
+	}
+
+#page {
+	background-color: white;
+	margin: 20px auto;
+	padding: 0;
+	width: 760px;
+	border: 1px solid #959596;
+	}
+	
+#header {
+	padding: 0;
+	margin: 0 auto;
+	height: 150px;
+	width: 100%;
+	background-color: #73a0c5;
+	}
+
+#header, #header img {
+	margin: auto;
+	text-align:center;
+	}
+
+.narrowcolumn {
+	float: left;
+	padding: 0 0 20px 45px;
+	margin: 0px 0 0;
+	width: 450px;
+
+	}
+
+.widecolumn {
+	padding: 10px 0 20px 0;
+	margin: 5px auto;
+	width: 450px;
+
+
+	}
+	
+.post {
+	margin: 10px 0px 20px 0px;
+	}
+
+.widecolumn .post {
+	margin: 0;
+	}
+
+.narrowcolumn .postmetadata {
+	padding-top: 5px;
+	}
+
+.widecolumn .postmetadata {
+	margin: 30px 0;
+	}
+	
+#footer {
+	padding: 0;
+	margin: 0 auto;
+	width: 760px;
+	clear: both;
+
+	}
+
+#footer p {
+	margin: 0;
+	padding: 20px 0;
+	}
+/* End Structure */
+
+
+
+/*	Begin Headers */
+
+.description {
+	text-align: center;
+	}
+
+h2 {
+	margin: 5px 0 0;
+	}
+
+h2.pagetitle {
+	margin-top: 30px;
+}
+
+#sidebar h2 {
+	margin: 5px 0 0;
+	padding: 0;
+
+	}
+
+h3 {
+	padding: 0;
+	margin: 30px 0 0;
+	}
+
+h3.comments {
+	padding: 0;
+	margin: 40px auto 20px ;
+	}
+/* End Headers */
+
+
+
+/* Begin Images */
+p img {
+	padding: 0;
+	max-width: 100%;
+	}
+
+/*	Using 'class="alignright"' on an image will (who would've
+	thought?!) align the image to the right. And using 'class="centered',
+	will of course center the image. This is much better than using
+	align="center", being much more futureproof (and valid) */
+	
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	
+img.alignright {
+	padding: 4px;
+	margin: 0 0 2px 7px;
+	display: inline;
+	}
+
+img.alignleft {
+	padding: 4px;
+	margin: 0 7px 2px 0;
+	display: inline;
+	}
+
+.alignright {
+	float: right;
+	}
+	
+.alignleft {
+	float: left
+	}
+/* End Images */
+
+
+
+/* Begin Lists
+
+	Special stylized non-IE bullets
+	Do not work in Internet Explorer, which merely default to normal bullets. */
+
+html>body .entry ul {
+	margin-left: 0px;
+	padding: 0 0 0 30px;
+	list-style: none;
+	padding-left: 10px;
+	text-indent: -10px;
+
+	} 
+
+html>body .entry li {
+	margin: 7px 0 8px 10px;
+	}
+
+.entry ul li:before, #sidebar ul ul li:before {
+	content: "» "
+
+	}
+#sidebar li.detalls_usuari:before {
+	content: ""
+}
+
+.entry ol {
+	padding: 0 0 0 35px;
+	margin: 0;
+	}
+
+.entry ol li {
+	margin: 0;
+	padding: 0;
+	}
+
+
+.postmetadata ul, .postmetadata li {
+	display: inline;
+	list-style-type: none;
+	list-style-image: none;
+	}
+
+	
+#sidebar ul, #sidebar ul ol {
+	margin: 0;
+	padding: 0;
+
+
+	}
+
+#sidebar ul li {
+	list-style-type: none;
+	list-style-image: none;
+	margin-bottom: 15px;
+	}
+
+#sidebar ul p, #sidebar ul select {
+	margin: 5px 0 8px;
+	}
+
+#sidebar ul ul, #sidebar ul ol {
+	margin: 5px 0 0 10px;
+	}
+
+#sidebar ul ul ul, #sidebar ul ol {
+	margin: 0 0 0 10px;
+	}
+
+#sidebar ul ul li, #sidebar ul ol li {
+	margin: 3px 0 0;
+	padding: 0;
+	}
+/* End Entry Lists */
+
+
+
+/* Begin Form Elements */
+#searchform {
+	margin: 10px auto;
+	padding: 5px 3px; 
+
+	}
+
+#sidebar #searchform #s {
+	width: 130px;
+	padding: 2px;
+
+	}
+
+#sidebar #searchsubmit {
+	padding: 1px;
+	}
+
+.entry form { /* This is mainly for password protected posts, makes them look better. */
+	text-align:center;
+	}
+
+select {
+	width: 130px;
+	}
+
+#commentform input {
+	width: 170px;
+	padding: 2px;
+	margin: 5px 5px 1px 0;
+	}
+
+#commentform textarea {
+	width: 100%;
+	padding: 2px;
+	}
+
+#commentform #submit {
+	margin: 0;
+	float: left;
+	}
+/* End Form Elements */
+
+
+
+/* Begin Comments*/
+.graybox {
+	margin: 0;
+	padding: 10px;
+
+	}
+
+.commentlist {
+	padding: 0;
+	text-align: justify;
+	}
+
+.commentlist li {
+	margin: 15px 0 3px;
+	padding: 5px 10px 3px;
+	list-style: none;
+	}
+
+.commentlist p {
+	margin: 10px 5px 10px 0;
+	}
+
+#commentform p {
+	margin: 5px 0;
+	}
+
+.nocomments {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	}
+
+.commentmetadata {
+	margin: 0;
+	display: block;
+	}
+/* End Comments */
+
+
+
+/* Begin Sidebar */
+#sidebar
+{
+	padding: 20px 0 10px 0;
+	margin-left: 545px;
+	width: 190px;
+
+
+
+	}
+
+#sidebar form{
+	margin: 0;
+	}
+/* End Sidebar */
+
+
+
+/* Begin Calendar */
+#wp-calendar {
+	empty-cells: show;
+	margin: 10px auto 0;
+	width: 155px;
+	}
+
+#wp-calendar #next a {
+	padding-right: 10px;
+	text-align: right;
+	}
+
+#wp-calendar #prev a {
+	padding-left: 10px;
+	text-align: left;
+	}
+
+#wp-calendar a {
+	display: block;
+	}
+
+#wp-calendar caption {
+	text-align: center;
+	width: 100%;
+	}
+
+#wp-calendar td {
+	padding: 3px 0;
+	text-align: center;
+	}
+
+#wp-calendar td.pad:hover { /* Doesn't work in IE */
+	background-color: #fff; }
+/* End Calendar */
+
+
+
+/* Begin Various Tags & Classes */
+acronym, abbr, span.caps {
+	cursor: help;
+	}
+
+acronym, abbr {
+	border-bottom: 1px dashed #999;
+	}
+
+blockquote {
+	margin: 15px 30px 0 10px;
+	padding-left: 20px;
+	border-left: 5px solid #ddd;
+	}
+
+blockquote cite {
+	margin: 5px 0 0;
+	display: block;
+	}
+
+.center {
+	text-align: center;
+	}
+
+hr {
+	display: none;
+	}
+
+a img {
+	border: none;
+	}
+
+.navigation {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 60px;
+
+
+	}
+/* End Various Tags & Classes*/
+
+
+
+/* "Daisy, Daisy, give me your answer do. I'm half crazy all for the love of you.
+	It won't be a stylish marriage, I can't afford a carriage.
+	But you'll look sweet upon the seat of a bicycle built for two." */
+
+
+/* agregados 04/12/2004 */
+
+.comment_even {
+	background: #f1f1f1;
+	padding: 5px;
+	margin-bottom: 2px;
+	-moz-border-radius: 5px;
+
+}
+
+.comment_odd {
+	background: #e1e1e1;
+	padding: 5px;
+	margin-bottom: 2px;
+	-moz-border-radius: 5px;
+}
+
+.photoframe /* robado descaradamente de KungFu Grippe www.kungugrippe.com */
+{
+	padding: 0px;
+	background-color: #eee;
+	border-color: #ccc;
+	border-width: 1px;
+	border-style: solid;
+	color: #333;
+}
+
+#TextDisplay
+
+{
+	background: #F4F4F4;
+	border: 1px solid #CECECE;
+	padding:3px;
+	margin-bottom: 10px;
+	font: 1.1em Arial, Verdana, Sans-Serif;
+	
+}
+
+.aviso
+{
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #f9f9f9;
+	border-color: #f1f1f1;
+	border-width: 1px;
+	border-style: solid;
+	color: #333;
+	display: block;
+	-moz-border-radius: 5px;
+}
+		body	 	{ background: url("http://poal.org/images/bgcolor.png"); }				#page		{ background: url("http://poal.org/images/bgwide.png") repeat-y top; border: none; } 			#header 	{ background: url("http://poal.org/images/header.png") no-repeat bottom center; }
+			#footer 	{ background: url("http://poal.org/images/footer.png") no-repeat bottom; border: none;}
+			
+			
+			/*	Because the template is slightly different, size-wise, with images, this needs to be set here
+				If you don't want to use the template's images, you can also delete the following two lines. */
+			
+			#header { padding: 1px; height: 148px; width: 758px; }
+			#headerimg 	{ margin: 7px 9px 0; height: 142px; width: 740px; } 
+		/* END IMAGE CSS */
+		
+
+		/* 	To ease the insertion of a personal header image, I have done it in such a way,
+			that you simply drop in an image called 'personalheader.jpg' into your /images/
+			directory. Dimensions should be at least 760px x 200px. Anything above that will
+			get cropped off of the image. */
+		
