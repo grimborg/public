@@ -1,0 +1,38 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import sha
+import cgi
+import deliciousapi
+
+dapi = deliciousapi.DeliciousAPI()
+bookmarks = dapi.get_bookmarks(username='grimborg', max_bookmarks=9000, sleep_seconds=1)
+with open('rss', 'w') as file:
+    file.write('''<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/">
+    <channel>
+    <title>Delicious/grimborg</title>
+    <link>http://delicious.com/grimborg</link>
+    <description>bookmarks posted by grimborg</description>
+    <atom:link rel="self" type="application/rss+xml" href="http://cron.poal.org/alldelicious.rss"/>
+    <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>''')
+
+    i=0
+    for b in bookmarks:
+        i+=1
+        (url, tags, title, _, date) = b
+        date = date.strftime('%a, %d %b %Y %H:%M:%S +0000')
+
+        file.write(u'<item>'.encode('utf8'))
+        file.write(u'<title>{0}</title>'.format(title).encode('utf8'))
+        file.write(u'<pubDate>'+date+'</pubDate>'.encode('utf8'))
+        file.write(u'<guid isPermaLink="false">http://delicious.com/url/04964fa4d760c8b9ecaca22c793a9872{0}#grimborg</guid>'.format(i))
+#    file.write('<guid isPermaLink="false">http://delicious.com/url/04964fa4d760c8b9ecaca22c793a9872#grimborg</guid>' # shit!.encode('utf8'))
+        file.write(u'<link>{0}</link>'.format(cgi.escape(url)).encode('utf8'))
+        file.write(u'<dc:creator><![CDATA[grimborg]]></dc:creator>'.encode('utf8'))
+#<comments>http://delicious.com/url/04964fa4d760c8b9ecaca22c793a9872</comments>
+#<wfw:commentRss>http://feeds.delicious.com/v2/rss/url/04964fa4d760c8b9ecaca22c793a9872</wfw:commentRss>
+        file.write(u'<source url="http://feeds.delicious.com/v2/rss/grimborg">grimborg\'s bookmarks</source>'.encode('utf8'))
+        for t in tags:
+            file.write(u'<category domain="http://delicious.com/grimborg/">{0}</category>'.format(t).encode('utf8'))
+        file.write('</item>\n'.encode('utf8'))
+    file.write('</channel></rss>'.encode('utf8'))
