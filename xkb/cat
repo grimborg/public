@@ -32,8 +32,8 @@ xkb_symbols "dvorak" {
     name[ Group1 ]="Catalunya (dvorak)";
 
     key <AE05> { [ 5, percent, EuroSign, EuroSign ] };
-    key <AC07> { [ r, R ] };
-    key <AD09> { [ h, H ] };
+#    key <AC07> { [ r, R ] };
+#    key <AD09> { [ h, H ] };
 
     key <AD01> { [ apostrophe, quotedbl, aacute, Aacute ] };
     key <AD02> { [ comma, less, oacute, Oacute ] };
@@ -47,13 +47,13 @@ xkb_symbols "dvorak" {
     key <AC03> { [ e, E, eacute, Eacute ] };
     key <AC04> { [ u, U, uacute, Uacute ] };
     key <AC05> { [ i, I, iacute, Iacute ] };
-    key <AB03> { [ j, J, eogonek, Eogonek ] };
+    key <AB03> { [ j, J, ediaeresis, Ediaeresis ] };
 
     key <AC09> { [ n, N, ntilde, Ntilde ] };
     key <AD10> { [ l, L, 0x1000140, 0x100013F ] };
     key <AB01> { [ semicolon,	colon, aogonek, Aogonek ] };
     key <AC10> { [ s, S, sacute, Sacute ] };
-    key <AD08> { [ c, C, cacute, Cacute	] };
+    key <AC08> { [ t, T, cacute, Cacute ] };
     key <AB10> { [ z, Z, zabovedot, Zabovedot ] };
     key <AB09> { [ v, V, nacute, Nacute ] };
     key <AB08> { [ w, W, lstroke, Lstroke ] };
