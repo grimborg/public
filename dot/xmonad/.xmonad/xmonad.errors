@@ -1,0 +1,9 @@
+
+xmonad.hs:71:0:
+    Warning: Module `Control.OldException' is deprecated:
+               Future versions of base will not support the old exceptions style. Please switch to extensible exceptions.
+
+xmonad.hs:71:0:
+    Warning: In the use of `catchDyn'
+             (imported from Control.OldException):
+             Deprecated: "Future versions of base will not support the old exceptions style. Please switch to extensible exceptions."
